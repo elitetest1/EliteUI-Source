@@ -4,7 +4,7 @@
 # date: $(date +%Y-%m-%d)
 
 BASE_DIR=$(pwd)
-WORK_DIR="$BASE_DIR/extracted_content"
+WORK_DIR="$BASE_DIR/EliteUI-Delta/extracted_content"
 LOG_FILE="$BASE_DIR/debloat_log_$(date +%Y%m%d_%H%M%S).txt"
 
 echo "EliteUI Debloat Log - $(date)" > "$LOG_FILE"
