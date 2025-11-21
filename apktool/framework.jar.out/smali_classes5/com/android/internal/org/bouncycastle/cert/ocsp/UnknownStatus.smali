@@ -1,0 +1,16 @@
+.class public Lcom/android/internal/org/bouncycastle/cert/ocsp/UnknownStatus;
+.super Ljava/lang/Object;
+.source "UnknownStatus.java"
+
+# interfaces
+.implements Lcom/android/internal/org/bouncycastle/cert/ocsp/CertificateStatus;
+
+
+# direct methods
+.method public constructor blacklist <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

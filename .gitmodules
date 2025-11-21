@@ -1,0 +1,3 @@
+[submodule "Android_Image_Tools"]
+	path = Android_Image_Tools
+	url = https://github.com/ravindu644/Android_Image_Tools.git

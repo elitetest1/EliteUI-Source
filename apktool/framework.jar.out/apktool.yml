@@ -1,0 +1,6 @@
+version: v2.12.1-28-eccb4b93-SNAPSHOT
+apkFileName: framework.jar
+sdkInfo:
+  minSdkVersion: 29
+doNotCompress:
+- dex

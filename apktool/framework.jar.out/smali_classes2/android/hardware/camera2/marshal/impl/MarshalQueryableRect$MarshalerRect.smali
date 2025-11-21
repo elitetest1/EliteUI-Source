@@ -1,0 +1,157 @@
+.class Landroid/hardware/camera2/marshal/impl/MarshalQueryableRect$MarshalerRect;
+.super Landroid/hardware/camera2/marshal/Marshaler;
+.source "MarshalQueryableRect.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/hardware/camera2/marshal/impl/MarshalQueryableRect;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "MarshalerRect"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/hardware/camera2/marshal/Marshaler<",
+        "Landroid/graphics/Rect;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method protected constructor blacklist <init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableRect;Landroid/hardware/camera2/utils/TypeReference;I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1010,
+            0x0,
+            0x0
+        }
+        names = {
+            null,
+            null,
+            null
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/hardware/camera2/utils/TypeReference<",
+            "Landroid/graphics/Rect;",
+            ">;I)V"
+        }
+    .end annotation
+
+    invoke-direct {p0, p1, p2, p3}, Landroid/hardware/camera2/marshal/Marshaler;-><init>(Landroid/hardware/camera2/marshal/MarshalQueryable;Landroid/hardware/camera2/utils/TypeReference;I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist getNativeSize()I
+    .locals 0
+
+    const/16 p0, 0x10
+
+    return p0
+.end method
+
+.method public blacklist marshal(Landroid/graphics/Rect;Ljava/nio/ByteBuffer;)V
+    .locals 0
+
+    iget p0, p1, Landroid/graphics/Rect;->left:I
+
+    invoke-virtual {p2, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    iget p0, p1, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {p2, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result p0
+
+    invoke-virtual {p2, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    invoke-virtual {p2, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    return-void
+.end method
+
+.method public bridge synthetic blacklist marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000,
+            0x1000
+        }
+        names = {
+            null,
+            null
+        }
+    .end annotation
+
+    check-cast p1, Landroid/graphics/Rect;
+
+    invoke-virtual {p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableRect$MarshalerRect;->marshal(Landroid/graphics/Rect;Ljava/nio/ByteBuffer;)V
+
+    return-void
+.end method
+
+.method public blacklist unmarshal(Ljava/nio/ByteBuffer;)Landroid/graphics/Rect;
+    .locals 3
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
+
+    move-result p0
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
+
+    move-result p1
+
+    add-int/2addr v1, p0
+
+    add-int/2addr p1, v0
+
+    new-instance v2, Landroid/graphics/Rect;
+
+    invoke-direct {v2, p0, v0, v1, p1}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    return-object v2
+.end method
+
+.method public bridge synthetic blacklist unmarshal(Ljava/nio/ByteBuffer;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableRect$MarshalerRect;->unmarshal(Ljava/nio/ByteBuffer;)Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    return-object p0
+.end method

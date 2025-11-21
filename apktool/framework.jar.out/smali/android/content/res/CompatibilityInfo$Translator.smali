@@ -1,0 +1,381 @@
+.class public Landroid/content/res/CompatibilityInfo$Translator;
+.super Ljava/lang/Object;
+.source "CompatibilityInfo.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/content/res/CompatibilityInfo;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "Translator"
+.end annotation
+
+
+# instance fields
+.field public final greylist applicationInvertedScale:F
+
+.field public final greylist applicationScale:F
+
+.field private greylist-max-o mContentInsetsBuffer:Landroid/graphics/Rect;
+
+.field private greylist-max-o mTouchableAreaBuffer:Landroid/graphics/Region;
+
+.field private greylist-max-o mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+
+# direct methods
+.method constructor blacklist <init>(Landroid/content/res/CompatibilityInfo;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    iget v0, p1, Landroid/content/res/CompatibilityInfo;->applicationScale:F
+
+    iget v1, p1, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
+
+    invoke-direct {p0, p1, v0, v1}, Landroid/content/res/CompatibilityInfo$Translator;-><init>(Landroid/content/res/CompatibilityInfo;FF)V
+
+    return-void
+.end method
+
+.method constructor blacklist <init>(Landroid/content/res/CompatibilityInfo;FF)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010,
+            0x0,
+            0x0
+        }
+        names = {
+            null,
+            null,
+            null
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    iput-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    iput-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    iput p2, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    iput p3, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public greylist getTranslatedContentInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    :cond_0
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, p1}, Landroid/content/res/CompatibilityInfo$Translator;->translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
+
+    return-object p0
+.end method
+
+.method public greylist-max-o getTranslatedTouchableArea(Landroid/graphics/Region;)Landroid/graphics/Region;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Region;
+
+    invoke-direct {v0}, Landroid/graphics/Region;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    :cond_0
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
+
+    iget-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, v0}, Landroid/graphics/Region;->scale(F)V
+
+    iget-object p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
+
+    return-object p0
+.end method
+
+.method public greylist-max-o getTranslatedVisibleInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    :cond_0
+    iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, p1}, Landroid/content/res/CompatibilityInfo$Translator;->translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
+
+    return-object p0
+.end method
+
+.method public greylist translateCanvas(Landroid/graphics/Canvas;)V
+    .locals 2
+
+    iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    const/high16 v1, 0x3fc00000    # 1.5f
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_0
+
+    const v0, 0x3b2b5601
+
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Canvas;->translate(FF)V
+
+    :cond_0
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, p0, p0}, Landroid/graphics/Canvas;->scale(FF)V
+
+    return-void
+.end method
+
+.method public greylist translateEventInScreenToAppWindow(Landroid/view/MotionEvent;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    invoke-virtual {p1, p0}, Landroid/view/MotionEvent;->scale(F)V
+
+    return-void
+.end method
+
+.method public blacklist translateInsetsStateInScreenToAppWindow(Landroid/view/InsetsState;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    invoke-virtual {p1, p0}, Landroid/view/InsetsState;->scale(F)V
+
+    return-void
+.end method
+
+.method public greylist-max-o translateLayoutParamsInAppWindowToScreen(Landroid/view/WindowManager$LayoutParams;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, p0}, Landroid/view/WindowManager$LayoutParams;->scale(F)V
+
+    return-void
+.end method
+
+.method public blacklist translateLengthInAppWindowToScreen(F)F
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    mul-float/2addr p1, p0
+
+    return p1
+.end method
+
+.method public greylist-max-o translatePointInScreenToAppWindow(Landroid/graphics/PointF;)V
+    .locals 1
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    cmpl-float v0, p0, v0
+
+    if-eqz v0, :cond_0
+
+    iget v0, p1, Landroid/graphics/PointF;->x:F
+
+    mul-float/2addr v0, p0
+
+    iput v0, p1, Landroid/graphics/PointF;->x:F
+
+    iget v0, p1, Landroid/graphics/PointF;->y:F
+
+    mul-float/2addr v0, p0
+
+    iput v0, p1, Landroid/graphics/PointF;->y:F
+
+    :cond_0
+    return-void
+.end method
+
+.method public greylist translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, p0}, Landroid/graphics/Rect;->scale(F)V
+
+    return-void
+.end method
+
+.method public greylist translateRectInScreenToAppWindow(Landroid/graphics/Rect;)V
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    invoke-virtual {p1, p0}, Landroid/graphics/Rect;->scale(F)V
+
+    return-void
+.end method
+
+.method public greylist translateRegionInWindowToScreen(Landroid/graphics/Region;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, p0}, Landroid/graphics/Region;->scale(F)V
+
+    return-void
+.end method
+
+.method public blacklist translateSourceControlsInScreenToAppWindow([Landroid/view/InsetsSourceControl;)V
+    .locals 7
+
+    if-nez p1, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    cmpl-float v0, p0, v0
+
+    if-nez v0, :cond_1
+
+    goto :goto_2
+
+    :cond_1
+    array-length v0, p1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_3
+
+    aget-object v2, p1, v1
+
+    if-nez v2, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {v2}, Landroid/view/InsetsSourceControl;->getInsetsHint()Landroid/graphics/Insets;
+
+    move-result-object v3
+
+    iget v4, v3, Landroid/graphics/Insets;->left:I
+
+    int-to-float v4, v4
+
+    mul-float/2addr v4, p0
+
+    float-to-int v4, v4
+
+    iget v5, v3, Landroid/graphics/Insets;->top:I
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, p0
+
+    float-to-int v5, v5
+
+    iget v6, v3, Landroid/graphics/Insets;->right:I
+
+    int-to-float v6, v6
+
+    mul-float/2addr v6, p0
+
+    float-to-int v6, v6
+
+    iget v3, v3, Landroid/graphics/Insets;->bottom:I
+
+    int-to-float v3, v3
+
+    mul-float/2addr v3, p0
+
+    float-to-int v3, v3
+
+    invoke-virtual {v2, v4, v5, v6, v3}, Landroid/view/InsetsSourceControl;->setInsetsHint(IIII)V
+
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    :goto_2
+    return-void
+.end method
+
+.method public greylist translateWindowLayout(Landroid/view/WindowManager$LayoutParams;)V
+    .locals 0
+
+    iget p0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
+
+    invoke-virtual {p1, p0}, Landroid/view/WindowManager$LayoutParams;->scale(F)V
+
+    return-void
+.end method

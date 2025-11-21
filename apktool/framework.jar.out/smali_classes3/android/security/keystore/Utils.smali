@@ -1,0 +1,70 @@
+.class public final Landroid/security/keystore/Utils;
+.super Ljava/lang/Object;
+.source "Utils.java"
+
+
+# direct methods
+.method private constructor blacklist <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static blacklist cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
+    .locals 0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/util/Date;->clone()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Date;
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method static blacklist cloneIfNotNull([B)[B
+    .locals 0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, [B->clone()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, [B
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method static blacklist cloneIfNotNull([I)[I
+    .locals 0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, [I->clone()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, [I
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method

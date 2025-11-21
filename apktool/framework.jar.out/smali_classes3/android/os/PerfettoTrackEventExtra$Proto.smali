@@ -1,0 +1,135 @@
+.class final Landroid/os/PerfettoTrackEventExtra$Proto;
+.super Ljava/lang/Object;
+.source "PerfettoTrackEventExtra.java"
+
+# interfaces
+.implements Landroid/os/PerfettoTrackEventExtra$PerfettoPointer;
+.implements Landroid/os/PerfettoTrackEventExtra$FieldContainer;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/os/PerfettoTrackEventExtra;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "Proto"
+.end annotation
+
+
+# static fields
+.field private static final blacklist sRegistry:Llibcore/util/NativeAllocationRegistry;
+
+
+# instance fields
+.field private final blacklist mExtraPtr:J
+
+.field private final blacklist mPtr:J
+
+
+# direct methods
+.method static constructor blacklist <clinit>()V
+    .locals 3
+
+    const-class v0, Landroid/os/PerfettoTrackEventExtra$Proto;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/PerfettoTrackEventExtra$Proto;->native_delete()J
+
+    move-result-wide v1
+
+    invoke-static {v0, v1, v2}, Llibcore/util/NativeAllocationRegistry;->createMalloced(Ljava/lang/ClassLoader;J)Llibcore/util/NativeAllocationRegistry;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/os/PerfettoTrackEventExtra$Proto;->sRegistry:Llibcore/util/NativeAllocationRegistry;
+
+    return-void
+.end method
+
+.method constructor blacklist <init>()V
+    .locals 4
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {}, Landroid/os/PerfettoTrackEventExtra$Proto;->native_init()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/os/PerfettoTrackEventExtra$Proto;->mPtr:J
+
+    invoke-static {v0, v1}, Landroid/os/PerfettoTrackEventExtra$Proto;->native_get_extra_ptr(J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Landroid/os/PerfettoTrackEventExtra$Proto;->mExtraPtr:J
+
+    sget-object v2, Landroid/os/PerfettoTrackEventExtra$Proto;->sRegistry:Llibcore/util/NativeAllocationRegistry;
+
+    invoke-virtual {v2, p0, v0, v1}, Llibcore/util/NativeAllocationRegistry;->registerNativeAllocation(Ljava/lang/Object;J)Ljava/lang/Runnable;
+
+    return-void
+.end method
+
+.method private static native blacklist native_add_field(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native blacklist native_clear_fields(J)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native blacklist native_delete()J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native blacklist native_get_extra_ptr(J)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native blacklist native_init()J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+
+# virtual methods
+.method public blacklist addField(Landroid/os/PerfettoTrackEventExtra$PerfettoPointer;)V
+    .locals 2
+
+    iget-wide v0, p0, Landroid/os/PerfettoTrackEventExtra$Proto;->mPtr:J
+
+    invoke-interface {p1}, Landroid/os/PerfettoTrackEventExtra$PerfettoPointer;->getPtr()J
+
+    move-result-wide p0
+
+    invoke-static {v0, v1, p0, p1}, Landroid/os/PerfettoTrackEventExtra$Proto;->native_add_field(JJ)V
+
+    return-void
+.end method
+
+.method public blacklist clearFields()V
+    .locals 2
+
+    iget-wide v0, p0, Landroid/os/PerfettoTrackEventExtra$Proto;->mPtr:J
+
+    invoke-static {v0, v1}, Landroid/os/PerfettoTrackEventExtra$Proto;->native_clear_fields(J)V
+
+    return-void
+.end method
+
+.method public blacklist getPtr()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/os/PerfettoTrackEventExtra$Proto;->mExtraPtr:J
+
+    return-wide v0
+.end method

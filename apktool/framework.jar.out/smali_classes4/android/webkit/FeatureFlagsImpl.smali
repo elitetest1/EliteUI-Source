@@ -1,0 +1,74 @@
+.class public final Landroid/webkit/FeatureFlagsImpl;
+.super Ljava/lang/Object;
+.source "FeatureFlagsImpl.java"
+
+# interfaces
+.implements Landroid/webkit/FeatureFlags;
+
+
+# direct methods
+.method public constructor blacklist <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public greylist deprecateStartSafeBrowsing()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public greylist fileSystemAccess()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public greylist mainlineApis()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public greylist updateServiceIpcWrapper()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public greylist updateServiceV2()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public greylist useBEntryPoint()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public greylist userAgentReduction()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method

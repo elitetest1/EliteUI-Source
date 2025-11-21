@@ -1,0 +1,80 @@
+.class Landroid/widget/SemExpandableListView$5$1;
+.super Landroid/animation/AnimatorListenerAdapter;
+.source "SemExpandableListView.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/widget/SemExpandableListView$5;->onPreDraw()Z
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic blacklist this$1:Landroid/widget/SemExpandableListView$5;
+
+
+# direct methods
+.method constructor blacklist <init>(Landroid/widget/SemExpandableListView$5;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    iput-object p1, p0, Landroid/widget/SemExpandableListView$5$1;->this$1:Landroid/widget/SemExpandableListView$5;
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
+
+    invoke-static {}, Landroid/widget/SemExpandableListView;->-$$Nest$sfgetTAG()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "expand animation finished"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p1, p0, Landroid/widget/SemExpandableListView$5$1;->this$1:Landroid/widget/SemExpandableListView$5;
+
+    iget-object p1, p1, Landroid/widget/SemExpandableListView$5;->val$animationEndRunnable:Ljava/lang/Runnable;
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    iget-object p0, p0, Landroid/widget/SemExpandableListView$5$1;->this$1:Landroid/widget/SemExpandableListView$5;
+
+    iget-object p0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
+
+    invoke-static {p0}, Landroid/widget/SemExpandableListView;->-$$Nest$mresetExpandAnimationState(Landroid/widget/SemExpandableListView;)V
+
+    return-void
+.end method
+
+.method public whitelist onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    iget-object p0, p0, Landroid/widget/SemExpandableListView$5$1;->this$1:Landroid/widget/SemExpandableListView$5;
+
+    iget-object p0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
+
+    const/4 p1, 0x2
+
+    invoke-static {p0, p1}, Landroid/widget/SemExpandableListView;->-$$Nest$fputmAnimationState(Landroid/widget/SemExpandableListView;I)V
+
+    return-void
+.end method

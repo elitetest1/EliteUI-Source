@@ -1,0 +1,105 @@
+.class Lcom/samsung/android/cover/CoverListenerDelegate;
+.super Lcom/samsung/android/cover/ICoverManagerCallback$Stub;
+.source "CoverListenerDelegate.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+    }
+.end annotation
+
+
+# static fields
+.field private static final greylist TAG:Ljava/lang/String; = "CoverManager"
+
+
+# instance fields
+.field private greylist mHandler:Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+
+.field private final greylist mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+
+# direct methods
+.method constructor greylist <init>(Lcom/samsung/android/cover/CoverManager$StateListener;Landroid/os/Handler;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/samsung/android/cover/ICoverManagerCallback$Stub;-><init>()V
+
+    iput-object p1, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    if-nez p2, :cond_0
+
+    invoke-virtual {p3}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object p2
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object p2
+
+    :goto_0
+    new-instance p3, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+
+    invoke-direct {p3, p2, p1}, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;-><init>(Landroid/os/Looper;Lcom/samsung/android/cover/CoverManager$StateListener;)V
+
+    iput-object p3, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mHandler:Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public greylist coverCallback(Lcom/samsung/android/cover/CoverState;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    iput v1, v0, Landroid/os/Message;->what:I
+
+    iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    iget-object p0, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mHandler:Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;->sendMessage(Landroid/os/Message;)Z
+
+    return-void
+.end method
+
+.method public greylist getListener()Lcom/samsung/android/cover/CoverManager$StateListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    return-object p0
+.end method
+
+.method public greylist getListenerInfo()Ljava/lang/String;
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method

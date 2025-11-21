@@ -1,0 +1,260 @@
+.class Landroid/widget/RtlSpacingHelper;
+.super Ljava/lang/Object;
+.source "RtlSpacingHelper.java"
+
+
+# static fields
+.field public static final greylist-max-o UNDEFINED:I = -0x80000000
+
+
+# instance fields
+.field private greylist-max-o mEnd:I
+
+.field private greylist-max-o mExplicitLeft:I
+
+.field private greylist-max-o mExplicitRight:I
+
+.field private greylist-max-o mIsRelative:Z
+
+.field private greylist-max-o mIsRtl:Z
+
+.field private greylist-max-o mLeft:I
+
+.field private greylist-max-o mRight:I
+
+.field private greylist-max-o mStart:I
+
+
+# direct methods
+.method constructor greylist-max-o <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    iput v0, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Landroid/widget/RtlSpacingHelper;->mStart:I
+
+    iput v1, p0, Landroid/widget/RtlSpacingHelper;->mEnd:I
+
+    iput v0, p0, Landroid/widget/RtlSpacingHelper;->mExplicitLeft:I
+
+    iput v0, p0, Landroid/widget/RtlSpacingHelper;->mExplicitRight:I
+
+    iput-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    iput-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRelative:Z
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public greylist-max-o getEnd()I
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    return p0
+
+    :cond_0
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return p0
+.end method
+
+.method public greylist-max-o getLeft()I
+    .locals 0
+
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    return p0
+.end method
+
+.method public greylist-max-o getRight()I
+    .locals 0
+
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return p0
+.end method
+
+.method public greylist-max-o getStart()I
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return p0
+
+    :cond_0
+    iget p0, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    return p0
+.end method
+
+.method public greylist-max-o setAbsolute(II)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRelative:Z
+
+    const/high16 v0, -0x80000000
+
+    if-eq p1, v0, :cond_0
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitLeft:I
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    :cond_0
+    if-eq p2, v0, :cond_1
+
+    iput p2, p0, Landroid/widget/RtlSpacingHelper;->mExplicitRight:I
+
+    iput p2, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    :cond_1
+    return-void
+.end method
+
+.method public greylist-max-o setDirection(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    iget-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRelative:Z
+
+    if-eqz v0, :cond_6
+
+    const/high16 v0, -0x80000000
+
+    if-eqz p1, :cond_3
+
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mEnd:I
+
+    if-eq p1, v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitLeft:I
+
+    :goto_0
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mStart:I
+
+    if-eq p1, v0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitRight:I
+
+    :goto_1
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return-void
+
+    :cond_3
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mStart:I
+
+    if-eq p1, v0, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitLeft:I
+
+    :goto_2
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mEnd:I
+
+    if-eq p1, v0, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitRight:I
+
+    :goto_3
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return-void
+
+    :cond_6
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitLeft:I
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    iget p1, p0, Landroid/widget/RtlSpacingHelper;->mExplicitRight:I
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return-void
+.end method
+
+.method public greylist-max-o setRelative(II)V
+    .locals 2
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mStart:I
+
+    iput p2, p0, Landroid/widget/RtlSpacingHelper;->mEnd:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRelative:Z
+
+    iget-boolean v0, p0, Landroid/widget/RtlSpacingHelper;->mIsRtl:Z
+
+    const/high16 v1, -0x80000000
+
+    if-eqz v0, :cond_1
+
+    if-eq p2, v1, :cond_0
+
+    iput p2, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    :cond_0
+    if-eq p1, v1, :cond_3
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    return-void
+
+    :cond_1
+    if-eq p1, v1, :cond_2
+
+    iput p1, p0, Landroid/widget/RtlSpacingHelper;->mLeft:I
+
+    :cond_2
+    if-eq p2, v1, :cond_3
+
+    iput p2, p0, Landroid/widget/RtlSpacingHelper;->mRight:I
+
+    :cond_3
+    return-void
+.end method

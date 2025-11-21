@@ -1,0 +1,73 @@
+.class public abstract Landroid/text/style/ClickableSpan;
+.super Landroid/text/style/CharacterStyle;
+.source "ClickableSpan.java"
+
+# interfaces
+.implements Landroid/text/style/UpdateAppearance;
+
+
+# static fields
+.field private static greylist-max-o sIdCounter:I
+
+
+# instance fields
+.field private greylist-max-o mId:I
+
+
+# direct methods
+.method static constructor blacklist <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor whitelist <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Landroid/text/style/CharacterStyle;-><init>()V
+
+    sget v0, Landroid/text/style/ClickableSpan;->sIdCounter:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Landroid/text/style/ClickableSpan;->sIdCounter:I
+
+    iput v0, p0, Landroid/text/style/ClickableSpan;->mId:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public greylist-max-o getId()I
+    .locals 0
+
+    iget p0, p0, Landroid/text/style/ClickableSpan;->mId:I
+
+    return p0
+.end method
+
+.method public abstract whitelist onClick(Landroid/view/View;)V
+.end method
+
+.method public whitelist test-api toString()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "ClickableSpan{}"
+
+    return-object p0
+.end method
+
+.method public whitelist updateDrawState(Landroid/text/TextPaint;)V
+    .locals 0
+
+    iget p0, p1, Landroid/text/TextPaint;->linkColor:I
+
+    invoke-virtual {p1, p0}, Landroid/text/TextPaint;->setColor(I)V
+
+    const/4 p0, 0x1
+
+    invoke-virtual {p1, p0}, Landroid/text/TextPaint;->setUnderlineText(Z)V
+
+    return-void
+.end method

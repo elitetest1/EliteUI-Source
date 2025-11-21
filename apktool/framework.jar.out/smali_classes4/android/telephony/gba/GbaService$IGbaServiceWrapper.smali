@@ -1,0 +1,91 @@
+.class Landroid/telephony/gba/GbaService$IGbaServiceWrapper;
+.super Landroid/telephony/gba/IGbaService$Stub;
+.source "GbaService.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/telephony/gba/GbaService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "IGbaServiceWrapper"
+.end annotation
+
+
+# instance fields
+.field final synthetic blacklist this$0:Landroid/telephony/gba/GbaService;
+
+
+# direct methods
+.method private constructor blacklist <init>(Landroid/telephony/gba/GbaService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1010
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    iput-object p1, p0, Landroid/telephony/gba/GbaService$IGbaServiceWrapper;->this$0:Landroid/telephony/gba/GbaService;
+
+    invoke-direct {p0}, Landroid/telephony/gba/IGbaService$Stub;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor blacklist <init>(Landroid/telephony/gba/GbaService;Landroid/telephony/gba/GbaService-IA;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telephony/gba/GbaService$IGbaServiceWrapper;-><init>(Landroid/telephony/gba/GbaService;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist authenticationRequest(Landroid/telephony/gba/GbaAuthRequest;)V
+    .locals 2
+
+    invoke-static {}, Landroid/telephony/gba/GbaService;->-$$Nest$sfgetDBG()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "receive request: "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "GbaService"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object p0, p0, Landroid/telephony/gba/GbaService$IGbaServiceWrapper;->this$0:Landroid/telephony/gba/GbaService;
+
+    invoke-static {p0}, Landroid/telephony/gba/GbaService;->-$$Nest$fgetmHandler(Landroid/telephony/gba/GbaService;)Landroid/telephony/gba/GbaService$GbaServiceHandler;
+
+    move-result-object p0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0, p1}, Landroid/telephony/gba/GbaService$GbaServiceHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method

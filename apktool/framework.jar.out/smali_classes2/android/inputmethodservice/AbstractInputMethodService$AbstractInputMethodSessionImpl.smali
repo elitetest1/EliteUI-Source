@@ -1,0 +1,217 @@
+.class public abstract Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
+.super Ljava/lang/Object;
+.source "AbstractInputMethodService.java"
+
+# interfaces
+.implements Landroid/view/inputmethod/InputMethodSession;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/inputmethodservice/AbstractInputMethodService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x401
+    name = "AbstractInputMethodSessionImpl"
+.end annotation
+
+
+# instance fields
+.field greylist-max-o mEnabled:Z
+
+.field greylist-max-o mRevoked:Z
+
+.field final synthetic blacklist this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+
+# direct methods
+.method public constructor whitelist <init>(Landroid/inputmethodservice/AbstractInputMethodService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    iput-object p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist dispatchGenericMotionEvent(ILandroid/view/MotionEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
+    .locals 0
+
+    iget-object p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-virtual {p0, p2}, Landroid/inputmethodservice/AbstractInputMethodService;->onGenericMotionEvent(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3, p1, p0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public whitelist dispatchKeyEvent(ILandroid/view/KeyEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    iget-object v1, v0, Landroid/inputmethodservice/AbstractInputMethodService;->mDispatcherState:Landroid/view/KeyEvent$DispatcherState;
+
+    invoke-virtual {p2, v0, v1, p0}, Landroid/view/KeyEvent;->dispatch(Landroid/view/KeyEvent$Callback;Landroid/view/KeyEvent$DispatcherState;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getKeyCode()I
+
+    move-result v1
+
+    const/16 v2, 0x3ee
+
+    if-ne v1, v2, :cond_0
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v1, Landroid/inputmethodservice/AbstractInputMethodService;->mIsPressBtnSIPOnOff:Z
+
+    :cond_0
+    if-eqz p3, :cond_1
+
+    invoke-interface {p3, p1, v0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
+
+    :cond_1
+    invoke-static {}, Landroid/view/inputmethod/Flags;->imeSwitcherRevamp()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    if-nez v0, :cond_2
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getUnicodeChar()I
+
+    move-result p1
+
+    if-lez p1, :cond_2
+
+    iget-object p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-static {p1}, Landroid/inputmethodservice/AbstractInputMethodService;->-$$Nest$fgetmInputMethodServiceInternal(Landroid/inputmethodservice/AbstractInputMethodService;)Landroid/inputmethodservice/InputMethodServiceInternal;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_2
+
+    iget-object p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-static {p0}, Landroid/inputmethodservice/AbstractInputMethodService;->-$$Nest$fgetmInputMethodServiceInternal(Landroid/inputmethodservice/AbstractInputMethodService;)Landroid/inputmethodservice/InputMethodServiceInternal;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Landroid/inputmethodservice/InputMethodServiceInternal;->notifyUserActionIfNecessary()V
+
+    :cond_2
+    return-void
+.end method
+
+.method public whitelist dispatchTrackballEvent(ILandroid/view/MotionEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
+    .locals 0
+
+    iget-object p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-virtual {p0, p2}, Landroid/inputmethodservice/AbstractInputMethodService;->onTrackballEvent(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3, p1, p0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public whitelist isEnabled()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
+
+    return p0
+.end method
+
+.method public whitelist isRevoked()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
+
+    return p0
+.end method
+
+.method public whitelist onShouldVerifyKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 0
+
+    iget-object p0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
+
+    invoke-virtual {p0, p1}, Landroid/inputmethodservice/AbstractInputMethodService;->onShouldVerifyKeyEvent(Landroid/view/KeyEvent;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public whitelist revokeSelf()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
+
+    return-void
+.end method
+
+.method public whitelist setEnabled(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
+
+    if-nez v0, :cond_0
+
+    iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
+
+    :cond_0
+    return-void
+.end method

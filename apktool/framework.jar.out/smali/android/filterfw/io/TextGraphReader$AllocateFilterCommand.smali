@@ -1,0 +1,92 @@
+.class Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;
+.super Ljava/lang/Object;
+.source "TextGraphReader.java"
+
+# interfaces
+.implements Landroid/filterfw/io/TextGraphReader$Command;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/filterfw/io/TextGraphReader;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "AllocateFilterCommand"
+.end annotation
+
+
+# instance fields
+.field private blacklist mClassName:Ljava/lang/String;
+
+.field private blacklist mFilterName:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor blacklist <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1010,
+            0x0,
+            0x0
+        }
+        names = {
+            null,
+            null,
+            null
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p2, p0, Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;->mClassName:Ljava/lang/String;
+
+    iput-object p3, p0, Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;->mFilterName:Ljava/lang/String;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist execute(Landroid/filterfw/io/TextGraphReader;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/filterfw/io/GraphIOException;
+        }
+    .end annotation
+
+    :try_start_0
+    invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->-$$Nest$fgetmFactory(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;->mClassName:Ljava/lang/String;
+
+    iget-object p0, p0, Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;->mFilterName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, p0}, Landroid/filterfw/core/FilterFactory;->createFilterByClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/filterfw/core/Filter;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    invoke-static {p1, p0}, Landroid/filterfw/io/TextGraphReader;->-$$Nest$fputmCurrentFilter(Landroid/filterfw/io/TextGraphReader;Landroid/filterfw/core/Filter;)V
+
+    return-void
+
+    :catch_0
+    move-exception p0
+
+    new-instance p1, Landroid/filterfw/io/GraphIOException;
+
+    invoke-virtual {p0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Landroid/filterfw/io/GraphIOException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method

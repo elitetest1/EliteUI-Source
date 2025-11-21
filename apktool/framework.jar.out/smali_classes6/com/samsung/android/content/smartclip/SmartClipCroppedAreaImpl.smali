@@ -1,0 +1,94 @@
+.class public Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;
+.super Ljava/lang/Object;
+.source "SmartClipCroppedAreaImpl.java"
+
+# interfaces
+.implements Lcom/samsung/android/content/smartclip/SemSmartClipCroppedArea;
+
+
+# instance fields
+.field private blacklist mRect:Landroid/graphics/Rect;
+
+
+# direct methods
+.method public constructor blacklist <init>(Landroid/graphics/Rect;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->mRect:Landroid/graphics/Rect;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist getRect()Landroid/graphics/Rect;
+    .locals 1
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    iget-object p0, p0, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->mRect:Landroid/graphics/Rect;
+
+    invoke-direct {v0, p0}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    return-object v0
+.end method
+
+.method public whitelist intersects(Landroid/graphics/Rect;)Z
+    .locals 1
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->mRect:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->getRect()Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Landroid/graphics/Rect;->intersects(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public whitelist intersects(Landroid/view/View;)Z
+    .locals 1
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->mRect:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p1}, Lcom/samsung/android/content/smartclip/SmartClipUtils;->getViewBoundsOnScreen(Landroid/view/View;)Landroid/graphics/Rect;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/samsung/android/content/smartclip/SmartClipCroppedAreaImpl;->intersects(Landroid/graphics/Rect;)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x0
+
+    return p0
+.end method

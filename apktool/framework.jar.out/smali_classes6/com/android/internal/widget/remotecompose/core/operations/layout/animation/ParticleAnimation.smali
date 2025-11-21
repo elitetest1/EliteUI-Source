@@ -1,0 +1,254 @@
+.class public Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;
+.super Ljava/lang/Object;
+.source "ParticleAnimation.java"
+
+
+# instance fields
+.field blacklist mAllParticles:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap<",
+            "Ljava/lang/Integer;",
+            "Ljava/util/ArrayList<",
+            "Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field blacklist mPaint:Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+
+# direct methods
+.method public constructor blacklist <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mAllParticles:Ljava/util/HashMap;
+
+    new-instance v0, Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+    invoke-direct {v0}, Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;-><init>()V
+
+    iput-object v0, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mPaint:Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist animate(Lcom/android/internal/widget/remotecompose/core/PaintContext;Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;Lcom/android/internal/widget/remotecompose/core/operations/layout/measure/ComponentMeasure;Lcom/android/internal/widget/remotecompose/core/operations/layout/measure/ComponentMeasure;F)V
+    .locals 12
+
+    iget-object v0, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mAllParticles:Ljava/util/HashMap;
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getComponentId()I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    move v2, v1
+
+    :goto_0
+    const/16 v3, 0x14
+
+    if-ge v2, v3, :cond_0
+
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    move-result-wide v3
+
+    double-to-float v6, v3
+
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    move-result-wide v3
+
+    double-to-float v7, v3
+
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    move-result-wide v3
+
+    double-to-float v8, v3
+
+    new-instance v5, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;
+
+    const/high16 v9, 0x435c0000    # 220.0f
+
+    const/high16 v10, 0x435c0000    # 220.0f
+
+    const/high16 v11, 0x435c0000    # 220.0f
+
+    invoke-direct/range {v5 .. v11}, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;-><init>(FFFFFF)V
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mAllParticles:Ljava/util/HashMap;
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getComponentId()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    invoke-virtual {p1}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->save()V
+
+    invoke-virtual {p1}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->savePaint()V
+
+    :goto_1
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_2
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;
+
+    iget-object v3, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mPaint:Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+    invoke-virtual {v3}, Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;->reset()V
+
+    iget-object v3, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mPaint:Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+    iget v4, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->r:F
+
+    const/high16 v5, 0x437f0000    # 255.0f
+
+    div-float/2addr v4, v5
+
+    iget v6, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->g:F
+
+    div-float/2addr v6, v5
+
+    iget v7, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->b:F
+
+    div-float/2addr v7, v5
+
+    const/high16 v8, 0x3f800000    # 1.0f
+
+    sub-float v8, v8, p5
+
+    const/high16 v9, 0x43480000    # 200.0f
+
+    mul-float/2addr v8, v9
+
+    div-float/2addr v8, v5
+
+    invoke-virtual {v3, v4, v6, v7, v8}, Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;->setColor(FFFF)V
+
+    iget-object v3, p0, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/ParticleAnimation;->mPaint:Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->applyPaint(Lcom/android/internal/widget/remotecompose/core/operations/paint/PaintBundle;)V
+
+    invoke-virtual {p3}, Lcom/android/internal/widget/remotecompose/core/operations/layout/measure/ComponentMeasure;->getX()F
+
+    move-result v3
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getWidth()F
+
+    move-result v4
+
+    iget v5, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->x:F
+
+    mul-float/2addr v4, v5
+
+    add-float/2addr v3, v4
+
+    invoke-virtual {p3}, Lcom/android/internal/widget/remotecompose/core/operations/layout/measure/ComponentMeasure;->getY()F
+
+    move-result v4
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getHeight()F
+
+    move-result v5
+
+    iget v6, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->y:F
+
+    mul-float/2addr v5, v6
+
+    add-float/2addr v4, v5
+
+    const v5, 0x3c23d70a    # 0.01f
+
+    mul-float v5, v5, p5
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getHeight()F
+
+    move-result v6
+
+    mul-float/2addr v5, v6
+
+    add-float/2addr v4, v5
+
+    invoke-virtual {p2}, Lcom/android/internal/widget/remotecompose/core/operations/layout/Component;->getHeight()F
+
+    move-result v5
+
+    const/high16 v6, 0x42700000    # 60.0f
+
+    add-float/2addr v5, v6
+
+    const v6, 0x3e19999a    # 0.15f
+
+    mul-float/2addr v5, v6
+
+    iget v2, v2, Lcom/android/internal/widget/remotecompose/core/operations/layout/animation/Particle;->radius:F
+
+    mul-float/2addr v5, v2
+
+    const/high16 v2, 0x41f00000    # 30.0f
+
+    mul-float v2, v2, p5
+
+    add-float/2addr v5, v2
+
+    invoke-virtual {p1, v3, v4, v5}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->drawCircle(FFF)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p1}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->restorePaint()V
+
+    invoke-virtual {p1}, Lcom/android/internal/widget/remotecompose/core/PaintContext;->restore()V
+
+    return-void
+.end method

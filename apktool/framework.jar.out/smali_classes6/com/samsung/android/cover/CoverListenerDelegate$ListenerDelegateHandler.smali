@@ -1,0 +1,62 @@
+.class Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
+.super Landroid/os/Handler;
+.source "CoverListenerDelegate.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/samsung/android/cover/CoverListenerDelegate;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "ListenerDelegateHandler"
+.end annotation
+
+
+# instance fields
+.field private final greylist mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+
+# direct methods
+.method constructor greylist <init>(Landroid/os/Looper;Lcom/samsung/android/cover/CoverManager$StateListener;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object p2, p0, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist handleMessage(Landroid/os/Message;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    if-eqz v0, :cond_1
+
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Lcom/samsung/android/cover/CoverState;
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
+
+    invoke-virtual {p0, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->onCoverStateChanged(Lcom/samsung/android/cover/CoverState;)V
+
+    return-void
+
+    :cond_0
+    const-string p0, "CoverManager"
+
+    const-string p1, "coverState : null"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return-void
+.end method

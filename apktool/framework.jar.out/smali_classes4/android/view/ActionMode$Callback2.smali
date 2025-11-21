@@ -1,0 +1,54 @@
+.class public abstract Landroid/view/ActionMode$Callback2;
+.super Ljava/lang/Object;
+.source "ActionMode.java"
+
+# interfaces
+.implements Landroid/view/ActionMode$Callback;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/view/ActionMode;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "Callback2"
+.end annotation
+
+
+# direct methods
+.method public constructor whitelist <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist onGetContentRect(Landroid/view/ActionMode;Landroid/view/View;Landroid/graphics/Rect;)V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+
+    move-result p1
+
+    invoke-virtual {p2}, Landroid/view/View;->getHeight()I
+
+    move-result p2
+
+    invoke-virtual {p3, p0, p0, p1, p2}, Landroid/graphics/Rect;->set(IIII)V
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p3, p0, p0, p0, p0}, Landroid/graphics/Rect;->set(IIII)V
+
+    return-void
+.end method

@@ -1,0 +1,95 @@
+.class public final Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;
+.super Ljava/lang/Object;
+.source "VirtualRotaryEncoderScrollEvent.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/hardware/input/VirtualRotaryEncoderScrollEvent;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Builder"
+.end annotation
+
+
+# instance fields
+.field private blacklist mEventTimeNanos:J
+
+.field private blacklist mScrollAmount:F
+
+
+# direct methods
+.method public constructor whitelist <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mScrollAmount:F
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mEventTimeNanos:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public whitelist build()Landroid/hardware/input/VirtualRotaryEncoderScrollEvent;
+    .locals 4
+
+    new-instance v0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent;
+
+    iget v1, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mScrollAmount:F
+
+    iget-wide v2, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mEventTimeNanos:J
+
+    const/4 p0, 0x0
+
+    invoke-direct {v0, v1, v2, v3, p0}, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent;-><init>(FJLandroid/hardware/input/VirtualRotaryEncoderScrollEvent-IA;)V
+
+    return-object v0
+.end method
+
+.method public whitelist setEventTimeNanos(J)Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;
+    .locals 2
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p1, v0
+
+    if-ltz v0, :cond_0
+
+    iput-wide p1, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mEventTimeNanos:J
+
+    return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Event time cannot be negative"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public whitelist setScrollAmount(F)Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;
+    .locals 3
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const-string v1, "scrollAmount"
+
+    const/high16 v2, -0x40800000    # -1.0f
+
+    invoke-static {p1, v2, v0, v1}, Lcom/android/internal/util/Preconditions;->checkArgumentInRange(FFFLjava/lang/String;)F
+
+    iput p1, p0, Landroid/hardware/input/VirtualRotaryEncoderScrollEvent$Builder;->mScrollAmount:F
+
+    return-object p0
+.end method

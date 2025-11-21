@@ -1,0 +1,96 @@
+.class Landroid/hardware/biometrics/PromptContentItemPlainText$1;
+.super Ljava/lang/Object;
+.source "PromptContentItemPlainText.java"
+
+# interfaces
+.implements Landroid/os/Parcelable$Creator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/hardware/biometrics/PromptContentItemPlainText;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/os/Parcelable$Creator<",
+        "Landroid/hardware/biometrics/PromptContentItemPlainText;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor blacklist <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public blacklist createFromParcel(Landroid/os/Parcel;)Landroid/hardware/biometrics/PromptContentItemPlainText;
+    .locals 0
+
+    new-instance p0, Landroid/hardware/biometrics/PromptContentItemPlainText;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Landroid/hardware/biometrics/PromptContentItemPlainText;-><init>(Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public bridge synthetic whitelist createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/hardware/biometrics/PromptContentItemPlainText$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/biometrics/PromptContentItemPlainText;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public blacklist newArray(I)[Landroid/hardware/biometrics/PromptContentItemPlainText;
+    .locals 0
+
+    new-array p0, p1, [Landroid/hardware/biometrics/PromptContentItemPlainText;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic whitelist newArray(I)[Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            null
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/hardware/biometrics/PromptContentItemPlainText$1;->newArray(I)[Landroid/hardware/biometrics/PromptContentItemPlainText;
+
+    move-result-object p0
+
+    return-object p0
+.end method
